@@ -9,6 +9,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## Easy Problems
+
 ### Problem 3
 
 Write code that will place the numbers 1 to 100 separately into a variable using for loop. Then, again using the seq function.
@@ -19,6 +21,9 @@ for (i in 1:100){
 One2Hundred[i] <- i
 }
 One2seq <- seq(1,100)
+
+print(One2Hundred)
+print(One2seq)
 ```
 
 ### Problem 4
@@ -29,6 +34,7 @@ With sum() function
 
 ```{r}
 Summate <- sum(One2Hundred)
+print(Summate)
 ```
 
 With a loop
@@ -38,4 +44,85 @@ SummateLoop <- 0L
 for (i in 1:100) {
 SummateLoop = SummateLoop + i
 }
+
+print(SummateLoop)
 ```
+
+### Problem 5
+
+Write a function to find the sum of all integers between any two values.
+
+```{r}
+SumAnyInterval <- function(IntStart,IntEnd){
+  n <- 0
+  for (i in IntStart:IntEnd){
+    n = n+i
+  }
+  return(n)
+}
+```
+
+Call the function:
+
+```{r}
+SumAnyInterval(5,200)
+```
+
+### Problem 6
+
+List all of the odd numbers from 1 to 100.
+
+Through the seq function:
+
+```{r}
+seq(1,100,by=2)
+```
+
+Through the use of mod and for loop
+
+```{r}
+Odds = c()
+for (i in 1:100) {
+  if (i%%2) {
+    Odds = c(Odds,i)
+  }
+}
+print(Odds)
+```
+
+### Problem 7
+List all of the prime numbers from 1 to 1000.
+
+```{r}
+Primes <- c(2)
+factors <- c(2)
+for (i in seq(3,1000,by=2)){
+  if (i%%factors){
+    Primes <- c(Primes,i)
+  }
+  factors <- c(factors,i)
+}
+print(Primes)
+```
+
+
+
+
+
+### Problem 8
+Generate 100 random numbers
+
+```{r}
+runif(100)
+```
+
+
+### Problem 9
+Generate 100 random numbers within a specific range
+```{r}
+runif(100,2,5)
+```
+
+
+### Problem 10
+
