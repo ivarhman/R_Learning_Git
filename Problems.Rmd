@@ -97,7 +97,8 @@ List all of the prime numbers from 1 to 1000.
 Primes <- c(2)
 factors <- c(2)
 for (i in seq(3,1000,by=2)){
-  if (i%%factors){
+  test <- i%%factors
+  if (0%in%test){}else{
     Primes <- c(Primes,i)
   }
   factors <- c(factors,i)
