@@ -436,49 +436,206 @@ print(Odds)</code></pre>
 <div id="problem-7" class="section level3">
 <h3>Problem 7</h3>
 <p>List all of the prime numbers from 1 to 1000.</p>
+<pre class="r"><code>Primes &lt;- c(2)
+factors &lt;- c(2)
+for (i in seq(3,1000,by=1)){
+  test &lt;- i%%factors
+  if (0%in%test){}else{
+    Primes &lt;- c(Primes,i)
+    factors &lt;- c(factors,i)
+  }
+}
+print(Primes)</code></pre>
+<pre><code>##   [1]   2   3   5   7  11  13  17  19  23  29  31  37  41  43  47  53  59  61
+##  [19]  67  71  73  79  83  89  97 101 103 107 109 113 127 131 137 139 149 151
+##  [37] 157 163 167 173 179 181 191 193 197 199 211 223 227 229 233 239 241 251
+##  [55] 257 263 269 271 277 281 283 293 307 311 313 317 331 337 347 349 353 359
+##  [73] 367 373 379 383 389 397 401 409 419 421 431 433 439 443 449 457 461 463
+##  [91] 467 479 487 491 499 503 509 521 523 541 547 557 563 569 571 577 587 593
+## [109] 599 601 607 613 617 619 631 641 643 647 653 659 661 673 677 683 691 701
+## [127] 709 719 727 733 739 743 751 757 761 769 773 787 797 809 811 821 823 827
+## [145] 829 839 853 857 859 863 877 881 883 887 907 911 919 929 937 941 947 953
+## [163] 967 971 977 983 991 997</code></pre>
 </div>
 <div id="problem-8" class="section level3">
 <h3>Problem 8</h3>
 <p>Generate 100 random numbers</p>
 <pre class="r"><code>runif(100)</code></pre>
-<pre><code>##   [1] 0.281075530 0.242108163 0.592233167 0.290652520 0.606585342 0.740854322
-##   [7] 0.622795419 0.678298612 0.790781441 0.346062216 0.720562690 0.979057403
-##  [13] 0.144055307 0.770258576 0.006460142 0.079975408 0.518316103 0.662864746
-##  [19] 0.415884990 0.083331454 0.776129125 0.066467442 0.816882485 0.339400905
-##  [25] 0.006290617 0.019064824 0.617751499 0.725337535 0.155219751 0.560274444
-##  [31] 0.805015426 0.197284133 0.932473511 0.253335326 0.332792755 0.189038775
-##  [37] 0.394734611 0.437816967 0.339611614 0.972876622 0.811283973 0.716571083
-##  [43] 0.169534147 0.614876130 0.275858858 0.739819148 0.999546710 0.441026675
-##  [49] 0.707160301 0.165572435 0.949640927 0.972077844 0.604766040 0.666310925
-##  [55] 0.273298708 0.116425285 0.512483077 0.149648427 0.680168518 0.235181614
-##  [61] 0.755585248 0.814448654 0.553701382 0.264923872 0.128005618 0.869584292
-##  [67] 0.973483401 0.568008672 0.984133974 0.637840805 0.991988410 0.626330388
-##  [73] 0.705887032 0.816198177 0.118037164 0.180050037 0.870550131 0.940056715
-##  [79] 0.551640841 0.201583904 0.713107600 0.199872688 0.759292548 0.876201348
-##  [85] 0.514985955 0.284188017 0.231444194 0.756638614 0.468433968 0.444731297
-##  [91] 0.474527114 0.121635541 0.697459628 0.718804460 0.070793078 0.633912320
-##  [97] 0.480871584 0.735895832 0.138783373 0.765389021</code></pre>
+<pre><code>##   [1] 0.93948739 0.81926067 0.09121501 0.47252877 0.11755213 0.02849293
+##   [7] 0.72414147 0.53244375 0.63424838 0.08867430 0.40993362 0.37196743
+##  [13] 0.11627805 0.68631161 0.58610526 0.72305425 0.68808512 0.91516082
+##  [19] 0.70766334 0.27553779 0.44052183 0.25738724 0.83658017 0.78090322
+##  [25] 0.44217168 0.10370827 0.45628520 0.39213346 0.01612957 0.68048462
+##  [31] 0.56503048 0.84578355 0.05657732 0.19854607 0.39163595 0.70229919
+##  [37] 0.87963153 0.51355103 0.54440050 0.14036903 0.36549221 0.43727589
+##  [43] 0.90437594 0.26909189 0.82364119 0.26117372 0.21067639 0.12887111
+##  [49] 0.78604638 0.44558770 0.19844902 0.14401860 0.84160446 0.52863258
+##  [55] 0.88533298 0.95826448 0.13381988 0.76957260 0.42135204 0.47052289
+##  [61] 0.49993330 0.58497664 0.55148639 0.28838193 0.91254674 0.35779996
+##  [67] 0.36283783 0.86954594 0.22511868 0.21073764 0.87268237 0.84831402
+##  [73] 0.18659926 0.60014827 0.17508592 0.52361040 0.92063533 0.28796086
+##  [79] 0.79531798 0.29693650 0.83395054 0.97102225 0.85573279 0.33899623
+##  [85] 0.30412293 0.97878413 0.68119125 0.07880770 0.87574801 0.69837403
+##  [91] 0.69111949 0.62105970 0.45304362 0.77485623 0.85536928 0.68209362
+##  [97] 0.32355092 0.04862934 0.67723734 0.22447180</code></pre>
 </div>
 <div id="problem-9" class="section level3">
 <h3>Problem 9</h3>
 <p>Generate 100 random numbers within a specific range</p>
 <pre class="r"><code>runif(100,2,5)</code></pre>
-<pre><code>##   [1] 2.517417 4.680471 3.635488 2.967474 3.940247 4.196532 4.754180 3.557515
-##   [9] 3.957563 3.265280 3.713487 3.904353 3.400909 4.083075 3.549710 4.427771
-##  [17] 4.464442 4.854812 2.309452 3.981956 2.643689 2.169475 3.408551 2.963899
-##  [25] 2.005308 2.387006 4.026061 3.401744 2.351340 4.654323 4.945572 3.373310
-##  [33] 2.435883 2.085374 4.179288 4.782562 3.051428 4.157562 3.673669 4.690865
-##  [41] 2.381973 3.541141 4.233968 3.971519 4.953856 3.238332 3.424182 2.942847
-##  [49] 3.904079 4.553668 2.135708 3.989607 3.130393 3.188419 4.803121 2.259663
-##  [57] 3.885961 4.013704 3.550037 4.560148 4.101287 2.394247 2.884607 2.738223
-##  [65] 2.497532 4.695052 2.793544 3.597896 4.141382 4.249403 3.620549 3.820977
-##  [73] 3.011229 4.732117 4.628244 4.841861 2.055162 4.103451 3.938930 3.783074
-##  [81] 2.036821 3.314762 2.635012 2.689754 4.681865 2.014938 3.474749 4.973909
-##  [89] 2.272966 3.200821 3.594558 3.046864 4.083306 2.718829 4.614048 2.249186
-##  [97] 3.872858 4.597361 2.886829 4.612279</code></pre>
+<pre><code>##   [1] 4.160956 4.675526 3.326338 3.774370 4.209497 3.345311 2.510629 3.913100
+##   [9] 3.653066 4.858186 4.602556 4.641812 3.594099 2.473883 3.482165 4.845973
+##  [17] 2.131994 2.659177 4.847733 2.160600 2.431227 2.747121 2.732199 4.661276
+##  [25] 2.842866 3.321075 3.569530 2.268696 2.842078 3.165889 4.938510 3.884855
+##  [33] 4.648675 3.932954 3.870425 2.441244 2.109352 2.183799 4.793131 4.809134
+##  [41] 3.444500 2.688362 4.545754 3.000440 3.401987 2.816522 4.448836 3.027281
+##  [49] 3.033801 2.030040 3.460587 2.349461 2.636221 3.823193 3.097307 2.230665
+##  [57] 4.152768 4.548659 2.793137 2.448819 4.041774 2.638163 3.847561 3.637436
+##  [65] 4.341626 2.216428 2.266430 2.757493 2.732023 3.765876 3.975451 2.450163
+##  [73] 4.187414 3.826109 3.213084 3.170020 2.554918 3.253018 4.971922 4.186907
+##  [81] 2.039366 4.689274 2.539285 3.200522 2.004890 3.381324 3.646148 4.138261
+##  [89] 4.152575 4.126036 3.224400 3.791695 3.426387 4.046480 4.101311 4.601267
+##  [97] 4.743104 3.033658 3.397580 4.716780</code></pre>
 </div>
 <div id="problem-10" class="section level3">
 <h3>Problem 10</h3>
+<p>Write your own functions to give descriptive statistics for a vector
+variable storing multiple numbers. Write functions for the following
+without using R intrinsics: mean, mode, median, range, standard
+deviation</p>
+<ul>
+<li>It’s ok to use sum() and length()</li>
+<li>be creative and see if you can find multiple solutions.</li>
+</ul>
+<pre class="r"><code>DescriptiveStats &lt;- function(array){
+  array2 = sort(array)
+  len = length(array2)
+  mean &lt;- sum(array2)/len
+  if (length(array2)%%2){
+    median = array2[(len/2)+.5]
+  }else{
+    median = (array2[len/2] + array2[(len/2+1)])/2
+  }
+  current &lt;- 0
+  for (i in array2) {
+    new &lt;- length(which(array2==i))
+    if (new&gt;current) {
+      current &lt;- new
+      mode &lt;- array2[i]
+    }
+  }
+  std &lt;- sqrt(sum((array2 - mean)^2)/(len-1))
+  
+  return(c(mean,median,mode,std))
+  
+}
+
+DescriptiveStats(c(1,2,3,4,5))</code></pre>
+<pre><code>## [1] 3.000000 3.000000 1.000000 1.581139</code></pre>
+</div>
+<div id="problem-11" class="section level3">
+<h3>Problem 11</h3>
+<p>Count the number of characters in a string variable</p>
+<pre class="r"><code>String &lt;- &quot;Count the number of characters in this string&quot;
+
+CharSplit&lt;- strsplit(String,&quot;&quot;)
+Count &lt;- length(CharSplit[[1]])
+
+print(Count)</code></pre>
+<pre><code>## [1] 45</code></pre>
+</div>
+<div id="problem-12" class="section level3">
+<h3>Problem 12</h3>
+<p>Count the number of words in a string variable</p>
+<pre class="r"><code>String = &quot;Count the number of words in this string&quot;
+WordSplit &lt;- strsplit(String,&quot; &quot;)
+
+Count &lt;- length(WordSplit[[1]])
+print(Count)</code></pre>
+<pre><code>## [1] 8</code></pre>
+</div>
+<div id="problem-13" class="section level3">
+<h3>Problem 13</h3>
+<p>Count the number of sentences in a string variable.</p>
+<pre class="r"><code>String = &quot;Count the sentences in this String. Use the strsplit function.&quot;
+
+SentenceSplit = strsplit(String,&quot;.&quot;,fixed=TRUE)
+Count &lt;- length(SentenceSplit[[1]])
+print(Count)</code></pre>
+<pre><code>## [1] 2</code></pre>
+<p>Had to change the fixed option to TRUE. Most likely because of
+regex.</p>
+</div>
+<div id="problem-14" class="section level3">
+<h3>Problem 14</h3>
+<p>Count the number of times a specific character occurs in a string
+variable</p>
+<pre class="r"><code>CountAccurance &lt;- function(char,string){
+  split &lt;- strsplit(string,&quot;&quot;)
+  split &lt;- unlist(split)
+  a &lt;- data.frame(table(split))
+  index &lt;- which(a$split== char)
+  return(a$Freq[index])
+}
+
+CountAccurance(&quot;c&quot;,String)</code></pre>
+<pre><code>## [1] 2</code></pre>
+</div>
+<div id="problem-15" class="section level3">
+<h3>Problem 15</h3>
+<p>Do a logical test to see if one word is found within the text of
+another string variable.</p>
+<pre class="r"><code>TestWord &lt;- &quot;hello&quot;
+TestSentence &lt;- &quot;Is hello contained in this sentence?&quot;
+
+grepl(TestWord,TestSentence)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="problem-16" class="section level3">
+<h3>Problem 16</h3>
+<p>Put the current computer time in milliseconds into a variable</p>
+<pre class="r"><code>print(as.numeric(Sys.time())*1000, digits = 10)</code></pre>
+<pre><code>## [1] 1667319027679</code></pre>
+</div>
+<div id="problem-17" class="section level3">
+<h3>Problem 17</h3>
+<p>Measure how long a piece of code takes to run by measuring the time
+before the code is run, and after the code is run, and taking the
+difference to find the total time</p>
+<pre class="r"><code>t1 = as.numeric(Sys.time())*1000
+print(DescriptiveStats(c(Primes)))</code></pre>
+<pre><code>## [1] 453.1369 436.0000   3.0000 298.1924</code></pre>
+<pre class="r"><code>t2 = as.numeric(Sys.time())*1000
+print(t2-t1)</code></pre>
+<pre><code>## [1] 4.39624</code></pre>
+</div>
+<div id="problem-18" class="section level3">
+<h3>Problem 18</h3>
+<p>Read a .txt file or .csv file into a variable</p>
+<pre class="r"><code>data = read.csv(&quot;track_points.csv&quot;)</code></pre>
+</div>
+<div id="problem-19" class="section level3">
+<h3>Problem 19</h3>
+<p>Output the contents of a variable to a .txt file</p>
+<pre class="r"><code>write.csv(data, file = &quot;test.txt&quot;)</code></pre>
+</div>
+<div id="problem-20" class="section level3">
+<h3>Problem 20</h3>
+<p>Create a variable that stores a 20x20 matrix of random numbers</p>
+<pre class="r"><code>m &lt;- matrix(runif(25), nrow=5)
+print(m)</code></pre>
+<pre><code>##           [,1]       [,2]      [,3]       [,4]       [,5]
+## [1,] 0.7672147 0.35687911 0.4171003 0.02001255 0.76958203
+## [2,] 0.8041717 0.84117520 0.3936426 0.70460902 0.46313195
+## [3,] 0.8590193 0.31307095 0.1366240 0.95670803 0.69933655
+## [4,] 0.3461260 0.05815679 0.1027935 0.33685313 0.04972156
+## [5,] 0.4970622 0.33723083 0.5985370 0.37179112 0.11493205</code></pre>
+</div>
+<div id="problem-21" class="section level3">
+<h3>Problem 21</h3>
+<p>Output any matrix to a txt file using commas or tabs to separate
+column values, and new lines to separate row values</p>
+<pre class="r"><code>write.csv(m,&quot;RandomMatrix&quot;)</code></pre>
 </div>
 </div>
 

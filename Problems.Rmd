@@ -96,12 +96,12 @@ List all of the prime numbers from 1 to 1000.
 ```{r}
 Primes <- c(2)
 factors <- c(2)
-for (i in seq(3,1000,by=2)){
+for (i in seq(3,1000,by=1)){
   test <- i%%factors
   if (0%in%test){}else{
     Primes <- c(Primes,i)
+    factors <- c(factors,i)
   }
-  factors <- c(factors,i)
 }
 print(Primes)
 ```
@@ -126,4 +126,158 @@ runif(100,2,5)
 
 
 ### Problem 10
+Write your own functions to give descriptive statistics for a vector variable storing multiple numbers. Write functions for the following without using R intrinsics: mean, mode, median, range, standard deviation
 
+* It’s ok to use sum() and length()
+* be creative and see if you can find multiple solutions.
+
+
+```{r}
+DescriptiveStats <- function(array){
+  array2 = sort(array)
+  len = length(array2)
+  mean <- sum(array2)/len
+  if (length(array2)%%2){
+    median = array2[(len/2)+.5]
+  }else{
+    median = (array2[len/2] + array2[(len/2+1)])/2
+  }
+  current <- 0
+  for (i in array2) {
+    new <- length(which(array2==i))
+    if (new>current) {
+      current <- new
+      mode <- array2[i]
+    }
+  }
+  std <- sqrt(sum((array2 - mean)^2)/(len-1))
+  
+  return(c(mean,median,mode,std))
+  
+}
+
+DescriptiveStats(c(1,2,3,4,5))
+```
+
+### Problem 11
+Count the number of characters in a string variable
+
+```{r}
+String <- "Count the number of characters in this string"
+
+CharSplit<- strsplit(String,"")
+Count <- length(CharSplit[[1]])
+
+print(Count)
+```
+
+
+
+### Problem 12
+Count the number of words in a string variable
+
+
+```{r}
+String = "Count the number of words in this string"
+WordSplit <- strsplit(String," ")
+
+Count <- length(WordSplit[[1]])
+print(Count)
+```
+
+### Problem 13
+
+Count the number of sentences in a string variable.
+
+```{r}
+String = "Count the sentences in this String. Use the strsplit function."
+
+SentenceSplit = strsplit(String,".",fixed=TRUE)
+Count <- length(SentenceSplit[[1]])
+print(Count)
+```
+
+Had to change the fixed option to TRUE. Most likely because of regex.
+
+
+### Problem 14
+
+Count the number of times a specific character occurs in a string variable
+
+```{r}
+CountAccurance <- function(char,string){
+  split <- strsplit(string,"")
+  split <- unlist(split)
+  a <- data.frame(table(split))
+  index <- which(a$split== char)
+  return(a$Freq[index])
+}
+
+CountAccurance("c",String)
+```
+
+### Problem 15
+
+Do a logical test to see if one word is found within the text of another string variable.
+```{r}
+TestWord <- "hello"
+TestSentence <- "Is hello contained in this sentence?"
+
+grepl(TestWord,TestSentence)
+```
+
+### Problem 16
+Put the current computer time in milliseconds into a variable
+
+```{r}
+
+print(as.numeric(Sys.time())*1000, digits = 10)
+
+```
+
+### Problem 17
+
+Measure how long a piece of code takes to run by measuring the time before the code is run, and after the code is run, and taking the difference to find the total time
+
+```{r}
+t1 = as.numeric(Sys.time())*1000
+print(DescriptiveStats(c(Primes)))
+t2 = as.numeric(Sys.time())*1000
+print(t2-t1)
+```
+
+### Problem 18
+
+Read a .txt file or .csv file into a variable
+
+```{r}
+
+data = read.csv("track_points.csv")
+```
+
+### Problem 19
+
+Output the contents of a variable to a .txt file
+
+```{r}
+write.csv(data, file = "test.txt")
+```
+
+### Problem 20
+
+Create a variable that stores a 20x20 matrix of random numbers
+
+
+```{r}
+m <- matrix(runif(25), nrow=5)
+print(m)
+```
+
+
+### Problem 21
+Output any matrix to a txt file using commas or tabs to separate column values, and new lines to separate row values
+
+
+```{r}
+write.csv(m,"RandomMatrix")
+```
