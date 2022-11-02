@@ -95,12 +95,10 @@ List all of the prime numbers from 1 to 1000.
 
 ```{r}
 Primes <- c(2)
-factors <- c(2)
 for (i in seq(3,1000,by=1)){
-  test <- i%%factors
+  test <- i%%Primes
   if (0%in%test){}else{
     Primes <- c(Primes,i)
-    factors <- c(factors,i)
   }
 }
 print(Primes)
@@ -252,7 +250,7 @@ Read a .txt file or .csv file into a variable
 
 ```{r}
 
-data = read.csv("track_points.csv")
+# data = read.csv("track_points.csv")
 ```
 
 ### Problem 19
@@ -260,7 +258,7 @@ data = read.csv("track_points.csv")
 Output the contents of a variable to a .txt file
 
 ```{r}
-write.csv(data, file = "test.txt")
+# write.csv(data, file = "test.txt")
 ```
 
 ### Problem 20
@@ -279,5 +277,16 @@ Output any matrix to a txt file using commas or tabs to separate column values, 
 
 
 ```{r}
-write.csv(m,"RandomMatrix")
+# write.csv(m,"RandomMatrix.txt")
 ```
+
+
+## Harder Problems
+
+### Problem 22
+Fizzbuzz
+
+```{r}
+
+```
+
