@@ -288,5 +288,40 @@ Fizzbuzz
 
 ```{r}
 
+testvalues <- c(3,5)
+outputstring <- c("Fizz","Buzz")
+
+for (i in 1:100) {
+output = ""
+
+test <- !i%%testvalues
+
+if (TRUE%in%test) {
+output <- paste(outputstring[test],collapse = "")
+}else {
+  output <- as.character(i)
+}
+
+print(output)
+}
+
 ```
+
+other solution to fizzbuzz:
+
+```{r}
+
+fizzbuzz <- 1:100
+
+mod3 <- !fizzbuzz%%3
+mod5 <- !fizzbuzz%%5
+mod35 <- mod3 & mod5
+fizzbuzz[mod3] <- "Fizz"
+fizzbuzz[mod5] <- "Buzz"
+fizzbuzz[mod35] <- "FizzBuzz"
+
+print(fizzbuzz)
+```
+Less code, but same test three times and harder to adapt new values or words.
+
 
