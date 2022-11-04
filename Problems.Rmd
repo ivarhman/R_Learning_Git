@@ -2,7 +2,9 @@
 title: "Problems from crumplab.com"
 author: "Ivar Hereide Mannsåker"
 date: "2022-11-01"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
