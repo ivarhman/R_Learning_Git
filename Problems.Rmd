@@ -282,7 +282,7 @@ Output any matrix to a txt file using commas or tabs to separate column values, 
 # write.csv(m,"RandomMatrix.txt")
 ```
 
-
+\newpage
 ## Harder Problems
 
 ### Problem 22
@@ -292,20 +292,21 @@ Fizzbuzz
 
 testvalues <- c(3,5)
 outputstring <- c("Fizz","Buzz")
+output = ""
 
 for (i in 1:100) {
-output = ""
+
 
 test <- !i%%testvalues
 
 if (TRUE%in%test) {
-output <- paste(outputstring[test],collapse = "")
+output[i] <- paste(outputstring[test],collapse = "")
 }else {
-  output <- as.character(i)
+  output[i] <- as.character(i)
 }
-
+}
 print(output)
-}
+
 
 ```
 
@@ -326,4 +327,15 @@ print(fizzbuzz)
 ```
 Less code, but same test three times and harder to adapt new values or words.
 
+
+
+### Problem 23
+
+Frequency Counts
+Take text as input, and be able to produce a table that shows the counts for each character in the text. This problem is related to the earlier easy problem asking you to count the number of times that a single letter appears in a text. The slightly harder problem is the more general version: count the frequencies of all unique characters in a text.
+
+
+```{r}
+testString <- "Many rabbits ran around the hollow hole"
+```
 
